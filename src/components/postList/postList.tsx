@@ -6,10 +6,23 @@ import { GetServerSideProps } from "next";
 import { FunctionComponent } from "react";
 
 interface PostListPageProps {
-  postData: PostFormInputs[];
+  postData?: PostFormInputs[];
 }
 
 const PostList: FunctionComponent<PostListPageProps> = ({ postData }) => {
+
+  if (!postData) {
+    return (
+      <div className="min-h-screen">
+        <ul className="grid md:grid-cols-2 md:px-24">
+          <li>
+            <p>Cargando...</p>
+          </li>
+        </ul>
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen">
       <ul className="grid md:grid-cols-2 md:px-24">
@@ -22,6 +35,7 @@ const PostList: FunctionComponent<PostListPageProps> = ({ postData }) => {
 export default PostList;
 
 export const getServerSideProps: GetServerSideProps<PostListPageProps> = async () => {
+
   try {
     await dbConnect();
 

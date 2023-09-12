@@ -1,5 +1,3 @@
-// lib/dbConnect.tsx
-
 import _mongoose, { connect } from "mongoose";
 
 declare global {
@@ -9,9 +7,9 @@ declare global {
   };
 }
 
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI
 
-if (!MONGODB_URI) {
+if (!process.env.MONGODB_URI) {
   throw new Error(
     "Please define the MONGODB_URI environment variable inside .env.local"
   );

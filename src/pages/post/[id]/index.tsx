@@ -43,7 +43,7 @@ const Post: FunctionComponent<PostPageProps> = ({ postData }) => {
               );
             })}
           </div>
-          <AuthorCard authorId={postData?.authorId as string} />
+          <AuthorCard />
         </article>
 
         {/* sidebar */}

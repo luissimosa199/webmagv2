@@ -1,5 +1,5 @@
 {
-  "name": "webmagv2",
+  "name": "lumedia-tech-blog",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,12 +14,11 @@
     "@mui/material": "^5.14.7",
     "@tanstack/react-query": "^4.33.0",
     "@typegoose/typegoose": "^11.5.0",
-    "@types/node": "20.5.9",
+    "@types/node": "20.6.0",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
-    "bcrypt": "^5.1.1",
-    "eslint": "8.48.0",
+    "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
     "mongoose": "^7.5.0",
     "next": "13.4.19",
@@ -31,6 +30,7 @@
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^4.34.1",
-    "@types/bcrypt": "^5.0.0"
+    "@types/bcrypt": "^5.0.0",
+    "bcrypt": "^5.1.1"
   }
 }
