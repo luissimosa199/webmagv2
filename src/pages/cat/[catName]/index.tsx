@@ -47,8 +47,6 @@ export const getServerSideProps: GetServerSideProps<CatPageProps> = async (conte
       links: item.links || []
     }));
 
-    console.log(postData)
-
     return {
       props: {
         postData,
