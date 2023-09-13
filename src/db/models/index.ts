@@ -1,5 +1,5 @@
-import Post from "./postModel";
-import User from "./userModel";
+import { Post } from "./postModel";
+import { User } from "./userModel";
 import { getModelForClass } from "@typegoose/typegoose";
 
 export const PostModel = getModelForClass(Post);

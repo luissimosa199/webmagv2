@@ -8,7 +8,7 @@ import { PostModel } from "@/db/models";
 import { FunctionComponent } from "react";
 
 interface PostPageProps {
-  postData: PostFormInputs | null;
+  postData?: PostFormInputs | null;
 }
 
 const Post: FunctionComponent<PostPageProps> = ({ postData }) => {
@@ -21,7 +21,7 @@ const Post: FunctionComponent<PostPageProps> = ({ postData }) => {
         <div className="flex h-64 flex-col justify-end gap-2 bg-slate-100 lg:col-span-3 relative">
 
           <div className="absolute top-0 w-full h-full z-0">
-            <Image className="object-cover" fill alt="" src={`${(postData.photo![0].url as string)}`} />
+           {postData.photo![0] && <Image className="object-cover" fill alt="" src={`${(postData.photo![0].url as string)}`} />}
           </div>
           <div className="flex items-center z-10 p-4">
             <p className="mr-2 cursor-pointer rounded bg-yellow-300 px-2 py-[1px] text-sm uppercase transition-all hover:opacity-75">
@@ -43,7 +43,7 @@ const Post: FunctionComponent<PostPageProps> = ({ postData }) => {
               );
             })}
           </div>
-          <AuthorCard />
+          {/* <AuthorCard /> */}
         </article>
 
         {/* sidebar */}
@@ -85,7 +85,8 @@ export const getServerSideProps: GetServerSideProps<PostPageProps> = async (cont
     const postData = {
       _id: post._id,
       urlSlug: post.urlSlug || "",
-      mainText: post.text,
+      text: post.text,
+      title: post.title,
       length: post.length,
       photo: post.photo,
       createdAt: post.createdAt.toISOString(),

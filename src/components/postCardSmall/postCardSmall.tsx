@@ -12,7 +12,7 @@ const PostCardSmall: FunctionComponent<PostCardSmallProps> = ({ post }) => {
     <div className="mr-4 grid grid-cols-4 gap-2 lg:grid-cols-3 justify-items-start">
 
       <div className="h-24 w-24 border col-start-1 justify-self-center bg-slate-100 relative">
-        <Image className="object-cover" fill alt="" src={`${(post?.photo![0].url as string)}`} />
+        {/* <Image className="object-cover" fill alt="" src={`${(post?.photo![0].url as string)}`} /> */}
       </div>
 
       <div className="col-span-3 lg:col-span-2">

@@ -1,9 +1,9 @@
 import { type FunctionComponent } from "react";
 import Image from "next/image";
-import { UserModel } from "@/db/models/userModel";
 import dbConnect from "@/db/dbConnect";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import { User } from "@/types";
+import { UserModel } from "@/db/models";
 
 interface AuthorCardProps {
   authorData?: Omit<User, 'email' | "photos">;

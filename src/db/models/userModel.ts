@@ -1,4 +1,4 @@
-import { modelOptions, prop, getModelForClass } from "@typegoose/typegoose";
+import { modelOptions, prop } from "@typegoose/typegoose";
 import { nanoid } from "nanoid";
 
 @modelOptions({
@@ -6,7 +6,7 @@ import { nanoid } from "nanoid";
     timestamps: true,
   },
 })
-export default class User {
+export class User {
   @prop({ default: () => nanoid(9) })
   _id: string;
 
@@ -34,5 +34,3 @@ export default class User {
   @prop({ default: 'USER' })
   role?: string;
 }
-
-export const UserModel = getModelForClass(User);

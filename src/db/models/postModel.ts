@@ -27,7 +27,7 @@ export class Links {
   options: { allowMixed: 0 },
 })
 
-export default class Post {
+export class Post {
   @prop({ default: () => nanoid(9) })
   _id: string;
 
