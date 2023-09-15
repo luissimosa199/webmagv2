@@ -24,12 +24,12 @@ const Post: FunctionComponent<PostPageProps> = ({ postData }) => {
            {postData.photo![0] && <Image className="object-cover" fill alt="" src={`${(postData.photo![0].url as string)}`} />}
           </div>
           <div className="flex items-center z-10 p-4">
-            <p className="mr-2 cursor-pointer rounded bg-yellow-300 px-2 py-[1px] text-sm uppercase transition-all hover:opacity-75">
+            <p className="mr-2 cursor-pointer rounded bg-yellow-300 px-2 py-[1px] text-sm uppercase transition-all hover:opacity-75 ">
               {postData?.tags[1]}
             </p>
-            <p className="text-xs text-slate-100">{postData?.createdAt}</p>
+            <p className="text-xs text-slate-100 ">{new Date(postData.createdAt).toLocaleDateString()}</p>
           </div>
-          <h1 className="text-2xl font-semibold z-10 p-4 bg-gradient-to-t from-black from-30% via-black via-60% to-transparent to-10% text-slate-100 lg:text-4xl">{postData.title}</h1>
+          <h1 className="text-2xl font-semibold z-10 p-4 bg-gradient-to-t from-slate-900 to-[#ffffff00] text-slate-100 lg:text-4xl">{postData.title}</h1>
         </div>
 
         {/* content */}
