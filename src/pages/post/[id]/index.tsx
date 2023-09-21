@@ -1,11 +1,14 @@
 import AuthorCard from "@/components/authorCard/authorCard";
 import RelatedPosts from "@/components/relatedPosts/relatedPosts";
+import ReactMarkdownContainer from "@/components/reactMarkdownContainer/reactMarkdownContainer"
 import Image from "next/image";
 import { PostFormInputs } from "@/types";
 import dbConnect from "@/db/dbConnect";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 import { PostModel } from "@/db/models";
 import { FunctionComponent } from "react";
+
+
 
 interface PostPageProps {
   postData?: PostFormInputs | null;
@@ -21,7 +24,7 @@ const Post: FunctionComponent<PostPageProps> = ({ postData }) => {
         <div className="flex h-64 flex-col justify-end gap-2 bg-slate-100 lg:col-span-3 relative">
 
           <div className="absolute top-0 w-full h-full z-0">
-           {postData.photo![0] && <Image className="object-cover" fill alt="" src={`${(postData.photo![0].url as string)}`} />}
+            {postData.photo![0] && <Image className="object-cover" fill alt="" src={`${(postData.photo![0].url as string)}`} />}
           </div>
           <div className="flex items-center z-10 p-4">
             <p className="mr-2 cursor-pointer rounded bg-yellow-300 px-2 py-[1px] text-sm uppercase transition-all hover:opacity-75 ">
@@ -35,13 +38,11 @@ const Post: FunctionComponent<PostPageProps> = ({ postData }) => {
         {/* content */}
         <article className="lg:col-span-2 lg:row-start-2 lg:row-span-4">
           <div className="m-4 mb-12 lg:mx-12">
-            {postData.text && postData.text.split("\n\n").map((e: string, idx: number) => {
-              return (
-                <p className="mb-4" key={idx}>
-                  {e}
-                </p>
-              );
-            })}
+
+            <ReactMarkdownContainer >
+              {postData.text}
+            </ReactMarkdownContainer>
+
           </div>
           {/* <AuthorCard /> */}
         </article>
