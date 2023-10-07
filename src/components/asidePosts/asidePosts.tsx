@@ -1,14 +1,13 @@
 import { type FunctionComponent } from "react";
 import CircularProgress from "@mui/material/CircularProgress";
 import Link from "next/link";
-import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import { fetchPosts } from "@/utils/fetchPosts";
 import { PostFormInputs } from "@/types";
+import { CldImage } from "next-cloudinary";
 
 const AsidePosts: FunctionComponent = () => {
-  
-  const { data, error, isLoading } = useQuery(['posts'], fetchPosts);
+  const { data, error, isLoading } = useQuery(["posts"], fetchPosts);
 
   if (error) {
     return (
@@ -34,7 +33,12 @@ const AsidePosts: FunctionComponent = () => {
             <Link href={`/post/${post._id}`}>
               <div className="flex gap-2">
                 <div className="h-20 w-20 flex-shrink-0 border-2 relative">
-                {/* <Image className="object-cover" fill alt="" src={`${(post?.photo![0].url as string)}`} /> */}
+                  <CldImage
+                    className="object-cover"
+                    fill
+                    alt=""
+                    src={`${post?.photo![0].url as string}`}
+                  />
                 </div>
                 <h3 className="text-lg">{post.title}</h3>
               </div>

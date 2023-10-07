@@ -13,8 +13,22 @@ const Footer: FunctionComponent<FooterProps> = ({ toggleMenu }) => {
       <div className="md:flex md:justify-around md:gap-4">
         <div className="mt-4 mb-4 text-gray-400">
           <div className="mb-4 flex gap-4 md:flex-col">
-            <h2 className="font-semibold"><Link target="_blank" href="https://lumedia.vercel.app/privacy">Política de Privacidad</Link></h2>
-            <h2 className="font-semibold"><Link target="_blank" href="https://lumedia.vercel.app/contact">Publicidad</Link></h2>
+            <h2 className="font-semibold">
+              <Link
+                target="_blank"
+                href="https://lumedia.vercel.app/privacy"
+              >
+                Política de Privacidad
+              </Link>
+            </h2>
+            <h2 className="font-semibold">
+              <Link
+                target="_blank"
+                href="https://lumedia.vercel.app/contact"
+              >
+                Publicidad
+              </Link>
+            </h2>
           </div>
           <p className="text-xs">© Copyright ©2023 | Luis Simosa</p>
         </div>
@@ -22,9 +36,30 @@ const Footer: FunctionComponent<FooterProps> = ({ toggleMenu }) => {
         <div className="mb-4">
           <h2 className="mb-2 text-lg font-semibold">Sobre Nosotros</h2>
           <ul className="font-semibold text-gray-400">
-            <li className="mb-2"><Link target="_blank" href="https://lumedia.vercel.app/about">Sobre nosotros</Link></li>
-            <li className="mb-2"><Link target="_blank" href="https://lumedia.vercel.app/contact">Trabaja con nosotros</Link></li>
-            <li className="mb-2"><Link target="_blank" href="https://lumedia.vercel.app/contact">Contacto</Link></li>
+            <li className="mb-2">
+              <Link
+                target="_blank"
+                href="https://lumedia.vercel.app/about"
+              >
+                Sobre nosotros
+              </Link>
+            </li>
+            <li className="mb-2">
+              <Link
+                target="_blank"
+                href="https://lumedia.vercel.app/contact"
+              >
+                Trabaja con nosotros
+              </Link>
+            </li>
+            <li className="mb-2">
+              <Link
+                target="_blank"
+                href="https://lumedia.vercel.app/contact"
+              >
+                Contacto
+              </Link>
+            </li>
           </ul>
         </div>
 

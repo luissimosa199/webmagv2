@@ -2,8 +2,8 @@ import { type FunctionComponent } from "react";
 import Logo from "../logo/logo";
 import useIsDesktop from "@/utils/isDesktop";
 import NavBar from "../navBar/navBar";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 
 interface HeaderProps {
   handleToggle: () => void;
@@ -20,7 +20,7 @@ const Header: FunctionComponent<HeaderProps> = ({
     <header className="flex h-16 items-center justify-between border-b">
       <div className="ml-4">
         <Link href="/">
-          <Logo />
+          <Logo className="hover:scale-105 transition-all" />
         </Link>
       </div>
       {isDesktop && <NavBar />}

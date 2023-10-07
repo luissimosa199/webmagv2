@@ -5,6 +5,9 @@ import { nanoid } from "nanoid";
   schemaOptions: {
     timestamps: true,
   },
+  options: {
+    allowMixed: 0,
+  },
 })
 export class User {
   @prop({ default: () => nanoid(9) })
@@ -31,6 +34,6 @@ export class User {
   @prop({ default: false })
   disableAds?: boolean;
 
-  @prop({ default: 'USER' })
+  @prop({ default: "USER" })
   role?: string;
 }

@@ -1,42 +1,35 @@
-
 import PostCard from "@/components/postCard/postCard";
 import dbConnect from "@/db/dbConnect";
 import { PostModel } from "@/db/models";
 import { PostFormInputs } from "@/types";
 import { GetServerSideProps } from "next";
+import Head from "next/head";
 import { FunctionComponent } from "react";
 
 interface PostListPageProps {
-  postData?: PostFormInputs[];
+  postData: PostFormInputs[];
 }
 
 const PostList: FunctionComponent<PostListPageProps> = ({ postData }) => {
-
-  if (!postData) {
-    return (
+  return (
+    <>
+      <Head>
+        <title>Lumedia.tech</title>
+      </Head>
       <div className="min-h-screen">
         <ul className="grid md:grid-cols-2 md:px-24">
-          <li>
-            <p>Cargando...</p>
-          </li>
+          <PostCard data={postData} />
         </ul>
       </div>
-    )
-  }
-
-  return (
-    <div className="min-h-screen">
-      <ul className="grid md:grid-cols-2 md:px-24">
-        <PostCard data={postData} />
-      </ul>
-    </div>
+    </>
   );
 };
 
 export default PostList;
 
-export const getServerSideProps: GetServerSideProps<PostListPageProps> = async () => {
-
+export const getServerSideProps: GetServerSideProps<
+  PostListPageProps
+> = async () => {
   try {
     await dbConnect();
 
@@ -54,9 +47,9 @@ export const getServerSideProps: GetServerSideProps<PostListPageProps> = async (
       photo: item.photo,
       createdAt: item.createdAt.toISOString(),
       tags: item.tags || [],
-      authorId: item.authorId || '',
-      authorName: item.authorName || '',
-      links: item.links || []
+      authorId: item.authorId || "",
+      authorName: item.authorName || "",
+      links: item.links || [],
     }));
 
     return {
@@ -73,4 +66,3 @@ export const getServerSideProps: GetServerSideProps<PostListPageProps> = async (
     };
   }
 };
-

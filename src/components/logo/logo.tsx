@@ -1,7 +1,15 @@
 import { type FunctionComponent } from "react";
 
-const Logo: FunctionComponent = () => {
-  return <h1 className="text-2xl">WEBMAG</h1>;
+interface LogoProps {
+  className?: string;
+}
+
+const Logo: FunctionComponent<LogoProps> = ({ className }) => {
+  return (
+    <h1 className={`text-2xl ${className}`}>
+      LUMEDIA.<span className="font-bold">TECH</span>
+    </h1>
+  );
 };
 
 export default Logo;
