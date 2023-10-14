@@ -25,12 +25,7 @@ const Footer: FunctionComponent<FooterProps> = ({ toggleMenu }) => {
               </Link>
             </h2>
             <h2 className="font-semibold">
-              <Link
-                target="_blank"
-                href="https://lumedia.vercel.app/contact"
-              >
-                Publicidad
-              </Link>
+              <Link href="/contact">Publicidad</Link>
             </h2>
           </div>
           <p className="text-xs">© Copyright ©2023 | Luis Simosa</p>
@@ -40,28 +35,13 @@ const Footer: FunctionComponent<FooterProps> = ({ toggleMenu }) => {
           <h2 className="mb-2 text-lg font-semibold">Sobre Nosotros</h2>
           <ul className="font-semibold text-gray-400">
             <li className="mb-2">
-              <Link
-                target="_blank"
-                href="https://lumedia.vercel.app/about"
-              >
-                Sobre nosotros
-              </Link>
+              <Link href="/about">Sobre mi</Link>
             </li>
             <li className="mb-2">
-              <Link
-                target="_blank"
-                href="https://lumedia.vercel.app/contact"
-              >
-                Trabaja con nosotros
-              </Link>
+              <Link href="/contact">Trabaja conmigo</Link>
             </li>
             <li className="mb-2">
-              <Link
-                target="_blank"
-                href="https://lumedia.vercel.app/contact"
-              >
-                Contacto
-              </Link>
+              <Link href="/contact">Contacto</Link>
             </li>
           </ul>
         </div>
@@ -83,7 +63,7 @@ const Footer: FunctionComponent<FooterProps> = ({ toggleMenu }) => {
 
         <div className="mb-4">
           <h2 className="mb-2 text-lg font-semibold">
-            Únete a nuestra lista de mensajes
+            Únete a mi lista de mensajes
           </h2>
           <form
             onSubmit={(e) => {
@@ -95,7 +75,7 @@ const Footer: FunctionComponent<FooterProps> = ({ toggleMenu }) => {
             <input
               type="text"
               className="w-full border-2 px-2 py-1 text-gray-400"
-              placeholder="Introduce tu email"
+              placeholder="Tu email"
             />
             <button
               type="submit"

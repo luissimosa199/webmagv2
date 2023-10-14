@@ -24,7 +24,7 @@ const CatPage: FunctionComponent<CatPageProps> = ({ postData, catName }) => {
         <h1 className="capitalize text-2xl font-semibold ml-28 my-2">
           {catName}
         </h1>
-        {postData ? (
+        {postData.length > 0 ? (
           <ul className="grid md:grid-cols-2 md:px-24">
             <PostCard data={postData} />
           </ul>
@@ -55,6 +55,7 @@ export const getServerSideProps: GetServerSideProps<CatPageProps> = async (
     const postData = response.map((item) => ({
       _id: item._id,
       title: item.title,
+      urlSlug: item.urlSlug,
       text: item.text,
       length: item.length,
       photo: item.photo,

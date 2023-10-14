@@ -45,10 +45,8 @@ const AuthorCard: FunctionComponent<AuthorCardProps> = ({ author }) => {
 
       <div className="col-span-3 flex flex-col justify-center gap-2">
         <h2 className="text-2xl font-semibold">{authorData.name}</h2>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga minima
-          expedita eos debitis, velit voluptas cum illo dolorem reiciendis quia.
-        </p>
+        <p>{authorData.bio}</p>
+        <p className="font-bold">{authorData.email}</p>
       </div>
     </div>
   );

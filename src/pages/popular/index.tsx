@@ -45,6 +45,7 @@ export const getServerSideProps: GetServerSideProps<PopularPageProps> = async (
     const postData = response.map((item) => ({
       _id: item._id,
       title: item.title,
+      urlSlug: item.urlSlug,
       text: item.text,
       length: item.length,
       photo: item.photo,

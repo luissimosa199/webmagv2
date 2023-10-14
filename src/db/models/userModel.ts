@@ -19,21 +19,12 @@ export class User {
   @prop({ required: true, unique: true })
   email: string;
 
-  @prop({ required: true })
-  password: string;
-
   @prop()
   image?: string;
 
-  @prop()
-  photos?: string[];
+  @prop({ default: "" })
+  bio?: string;
 
   @prop()
   emailVerified?: Date | null;
-
-  @prop({ default: false })
-  disableAds?: boolean;
-
-  @prop({ default: "USER" })
-  role?: string;
 }

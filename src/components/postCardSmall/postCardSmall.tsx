@@ -9,7 +9,7 @@ interface PostCardSmallProps {
 
 const PostCardSmall: FunctionComponent<PostCardSmallProps> = ({ post }) => {
   return (
-    <div className="mr-4 grid grid-cols-4 gap-2 lg:grid-cols-3 justify-items-start">
+    <div className="grid grid-cols-4 gap-2 lg:grid-cols-3 justify-items-start">
       <div className="h-24 w-24 border col-start-1 justify-self-center bg-slate-100 relative">
         <CldImage
           className="object-cover"
@@ -21,7 +21,9 @@ const PostCardSmall: FunctionComponent<PostCardSmallProps> = ({ post }) => {
 
       <div className="col-span-3 lg:col-span-2">
         <Link href={`/post/${post.urlSlug}`}>
-          <h3 className="text-lg font-semibold">{post.title}</h3>
+          <h3 className="text-lg font-semibold ml-2 min-[400px]:ml-0">
+            {post.title}
+          </h3>
         </Link>
       </div>
     </div>

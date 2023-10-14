@@ -4,6 +4,7 @@ import useIsDesktop from "@/utils/isDesktop";
 import NavBar from "../navBar/navBar";
 import Link from "next/link";
 import Image from "next/image";
+import SearchButton from "../searchButton/searchButton";
 
 interface HeaderProps {
   handleToggle: () => void;
@@ -47,14 +48,7 @@ const Header: FunctionComponent<HeaderProps> = ({
             />
           )}
         </button>
-        <button className="mr-6">
-          <Image
-            width={24}
-            height={24}
-            src="https://img.icons8.com/material-outlined/24/null/search--v1.png"
-            alt="Search Button"
-          />
-        </button>
+        <SearchButton />
       </div>
     </header>
   );

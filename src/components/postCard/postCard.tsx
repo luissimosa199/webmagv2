@@ -8,7 +8,6 @@ interface PostCardProps {
 }
 
 const PostCard: FunctionComponent<PostCardProps> = ({ data }) => {
-  console.log(data);
   return (
     <>
       {data &&

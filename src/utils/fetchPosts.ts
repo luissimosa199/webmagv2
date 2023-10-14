@@ -3,9 +3,11 @@ import { PostFormInputs } from "@/types";
 export async function fetchPosts({
   tags,
   exclude,
+  searchTerm,
 }: {
   tags?: string;
   exclude?: string;
+  searchTerm?: string;
 }): Promise<PostFormInputs[]> {
   const queryParams = new URLSearchParams();
 
@@ -15,6 +17,10 @@ export async function fetchPosts({
 
   if (exclude) {
     queryParams.append("exclude", exclude);
+  }
+
+  if (searchTerm) {
+    queryParams.append("search", searchTerm); // Assuming the backend uses "search" as the query parameter key for searching
   }
 
   const url = `/api/post?${queryParams.toString()}`;
