@@ -11,8 +11,12 @@ interface RelatedPostsProps {
 }
 
 const RelatedPosts: FunctionComponent<RelatedPostsProps> = ({ cat, pid }) => {
-
-  const { data, error, isLoading } = useQuery(["posts"], fetchPosts);
+  const { data, error, isLoading } = useQuery<PostFormInputs[]>(
+    ["posts", cat, pid],
+    () => {
+      return fetchPosts({ tags: cat, exclude: pid });
+    }
+  );
 
   if (error) {
     return (
@@ -40,7 +44,12 @@ const RelatedPosts: FunctionComponent<RelatedPostsProps> = ({ cat, pid }) => {
       <h2 className="ml-2 mb-4 text-2xl font-semibold">Posts relacionados</h2>
       <div className="flex flex-col gap-2 ml-2 sm:w-3/4 lg:w-full">
         {data?.map((post: PostFormInputs) => {
-          return <PostCardSmall key={post._id} post={post} />;
+          return (
+            <PostCardSmall
+              key={post._id}
+              post={post}
+            />
+          );
         })}
       </div>
     </div>

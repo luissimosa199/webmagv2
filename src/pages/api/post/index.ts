@@ -9,7 +9,7 @@ export default async function handler(
   await dbConnect();
 
   if (req.method === "GET") {
-    const { tags, page } = req.query;
+    const { tags, page, exclude } = req.query;
     const perPage = 10;
     const skip = page ? parseInt(page as string) * perPage : 0;
 
@@ -17,13 +17,26 @@ export default async function handler(
       const tagsArray = Array.isArray(tags) ? tags : [tags];
       const regexPatterns = tagsArray.map((tag) => new RegExp(`^${tag}`, "i"));
 
-      const response = await PostModel.find({
-        tags: { $in: regexPatterns },
-      })
-        .sort({ createdAt: -1 })
-        .skip(skip)
-        .limit(perPage)
-        .lean();
+      let response;
+
+      if (exclude) {
+        response = await PostModel.find({
+          tags: { $in: regexPatterns },
+          _id: { $nin: [exclude] },
+        })
+          .sort({ createdAt: -1 })
+          .skip(skip)
+          .limit(perPage)
+          .lean();
+      } else {
+        response = await PostModel.find({
+          tags: { $in: regexPatterns },
+        })
+          .sort({ createdAt: -1 })
+          .skip(skip)
+          .limit(perPage)
+          .lean();
+      }
 
       res.status(200).json(response);
     } else {

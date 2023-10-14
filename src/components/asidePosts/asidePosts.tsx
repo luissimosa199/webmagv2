@@ -7,7 +7,9 @@ import { PostFormInputs } from "@/types";
 import { CldImage } from "next-cloudinary";
 
 const AsidePosts: FunctionComponent = () => {
-  const { data, error, isLoading } = useQuery(["posts"], fetchPosts);
+  const { data, error, isLoading } = useQuery(["posts"], () => {
+    return fetchPosts({});
+  });
 
   if (error) {
     return (
