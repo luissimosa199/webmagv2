@@ -9,7 +9,7 @@ interface AsideMenuProps {
 
 const AsideMenu: FunctionComponent<AsideMenuProps> = ({ handleToggle }) => {
   return (
-    <div className="fixed -top-0 -right-0 z-10 flex h-screen w-full max-w-lg flex-col overflow-y-auto bg-white p-4 text-xl font-semibold lg:w-[70%]">
+    <div className="fixed z-50 -top-0 -right-0 flex h-screen w-full max-w-lg flex-col overflow-y-auto bg-white p-4 text-xl font-semibold lg:w-[70%]">
       <button
         className="mb-2 self-end"
         onClick={handleToggle}

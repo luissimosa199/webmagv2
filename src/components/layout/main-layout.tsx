@@ -21,11 +21,24 @@ const MainLayout: FunctionComponent<MainLayoutProps> = ({ children }) => {
 
   return (
     <>
-      <Header handleToggle={() => {handleToggle()}} toggleMenu={toggleMenu} />
+      <Header
+        handleToggle={() => {
+          handleToggle();
+        }}
+        toggleMenu={toggleMenu}
+      />
+      {toggleMenu && <AsideMenu handleToggle={handleToggle} />}
       {toggleMenu && (
-        <AsideMenu handleToggle={handleToggle}/>
+        <span
+          onClick={() => {
+            if (toggleMenu) setToggleMenu(false);
+          }}
+          className=" fixed top-0 w-screen h-screen z-40"
+        ></span>
       )}
-      <main className={toggleMenu ? "blur-sm" : ""}>{children}</main>
+      <main className={toggleMenu ? "blur-sm select-none z-30" : ""}>
+        {children}
+      </main>
       <Footer toggleMenu={toggleMenu} />
     </>
   );
