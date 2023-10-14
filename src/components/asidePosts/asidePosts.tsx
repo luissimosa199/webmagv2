@@ -30,7 +30,7 @@ const AsidePosts: FunctionComponent = () => {
       {data?.map((post: PostFormInputs) => {
         return (
           <li key={post._id}>
-            <Link href={`/post/${post._id}`}>
+            <Link href={`/post/${post.urlSlug}`}>
               <div className="flex gap-2">
                 <div className="h-20 w-20 flex-shrink-0 border-2 relative">
                   <CldImage

@@ -20,7 +20,7 @@ const PostCardSmall: FunctionComponent<PostCardSmallProps> = ({ post }) => {
       </div>
 
       <div className="col-span-3 lg:col-span-2">
-        <Link href={`/post/${post._id}`}>
+        <Link href={`/post/${post.urlSlug}`}>
           <h3 className="text-lg font-semibold">{post.title}</h3>
         </Link>
       </div>
