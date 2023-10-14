@@ -5,6 +5,9 @@ import Link from "next/link";
 interface FooterProps {
   toggleMenu: boolean;
 }
+const CAT_1 = process.env.NEXT_PUBLIC_CAT_1;
+const CAT_2 = process.env.NEXT_PUBLIC_CAT_2;
+const CAT_3 = process.env.NEXT_PUBLIC_CAT_3;
 
 const Footer: FunctionComponent<FooterProps> = ({ toggleMenu }) => {
   return (
@@ -66,14 +69,14 @@ const Footer: FunctionComponent<FooterProps> = ({ toggleMenu }) => {
         <div className="mb-4">
           <h2 className="mb-2 text-lg font-semibold">Categorías</h2>
           <ul className="font-semibold text-gray-400">
-            <li>
-              <Link href="/argentina">Argentina</Link>
+            <li className="capitalize">
+              <Link href={`/cat/${CAT_1 as string}`}>{CAT_1}</Link>
             </li>
-            <li>
-              <Link href="/internacionales">Internacionales</Link>
+            <li className="capitalize">
+              <Link href={`/cat/${CAT_2 as string}`}>{CAT_2}</Link>
             </li>
-            <li>
-              <Link href="/economia">Economía</Link>
+            <li className="capitalize">
+              <Link href={`/cat/${CAT_3 as string}`}>{CAT_3}</Link>
             </li>
           </ul>
         </div>
