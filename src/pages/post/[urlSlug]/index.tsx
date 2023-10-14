@@ -75,15 +75,9 @@ export const getServerSideProps: GetServerSideProps<PostPageProps> = async (
   try {
     await dbConnect();
 
-    const { id } = context.query;
+    const { urlSlug } = context.query;
 
-    let post;
-
-    if (id!.length !== 9) {
-      post = await PostModel.findOne({ urlSlug: id }).lean();
-    } else {
-      post = await PostModel.findById(id).lean();
-    }
+    const post = await PostModel.findOne({ urlSlug: urlSlug }).lean();
 
     if (!post) {
       return {
@@ -93,15 +87,15 @@ export const getServerSideProps: GetServerSideProps<PostPageProps> = async (
 
     const postData = {
       _id: post._id,
-      urlSlug: post.urlSlug || "",
+      urlSlug: post.urlSlug,
       text: post.text,
       title: post.title,
       length: post.length,
       photo: post.photo,
       createdAt: post.createdAt.toISOString(),
-      tags: post.tags || [],
-      authorId: post.authorId || "",
-      authorName: post.authorName || "",
+      tags: post.tags,
+      authorId: post.authorId,
+      authorName: post.authorName,
       links: post.links,
     };
 

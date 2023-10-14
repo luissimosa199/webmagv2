@@ -43,6 +43,7 @@ export const getServerSideProps: GetServerSideProps<
       _id: item._id,
       title: item.title,
       text: item.text,
+      urlSlug: item.urlSlug,
       length: item.length,
       photo: item.photo,
       createdAt: item.createdAt.toISOString(),

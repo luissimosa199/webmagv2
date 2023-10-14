@@ -8,6 +8,7 @@ interface PostCardProps {
 }
 
 const PostCard: FunctionComponent<PostCardProps> = ({ data }) => {
+  console.log(data);
   return (
     <>
       {data &&
@@ -38,7 +39,7 @@ const PostCard: FunctionComponent<PostCardProps> = ({ data }) => {
                   </p>
                 </div>
 
-                <Link href={`/post/${post._id}`}>
+                <Link href={`/post/${post.urlSlug}`}>
                   <p className="text-xl font-semibold">{post.title}</p>
                 </Link>
               </div>
