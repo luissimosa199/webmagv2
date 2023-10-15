@@ -35,6 +35,7 @@
     "@tailwindcss/typography": "^0.5.10",
     "@tanstack/eslint-plugin-query": "^4.34.1",
     "@types/bcrypt": "^5.0.0",
+    "@types/lodash": "^4.14.199",
     "@types/react-syntax-highlighter": "^15.5.7",
     "bcrypt": "^5.1.1"
   }
